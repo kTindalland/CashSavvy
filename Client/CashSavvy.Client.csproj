@@ -15,4 +15,9 @@
     <ProjectReference Include="..\Shared\CashSavvy.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces" />
+    <Folder Include="Services" />
+  </ItemGroup>
+
 </Project>
