@@ -1,6 +1,39 @@
 ﻿@page "/login"
-<h3>login</h3>
+@using CashSavvy.Shared
+
+<div class="col-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Login</h2>
+        </div>
+        <div class="card-body">
+            <EditForm Model="@_model" OnValidSubmit="@OnValidSubmit">
+                <DataAnnotationsValidator />
+                
+                <div class="form-group">
+                    <label>Username</label>
+                    <InputText @bind-Value="_model.Username" class="form-control" />
+                    <ValidationMessage For="@(() => _model.Username)" />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <InputText @bind-Value="_model.Password" type="password" class="form-control" />
+                    <ValidationMessage For="@(() => _model.Password)" />
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
 
 @code {
-    
+    private LoginRequest _model = new LoginRequest();
+
+    private void OnValidSubmit()
+    {
+        Console.WriteLine($"Form submitted with values {_model.Username} and {_model.Password}");
+    }
+
 }
